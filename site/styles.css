@@ -110,6 +110,8 @@ h1, h2, h3 { line-height: 1.25; margin: 0; }
 .cross::before { left: 7px; top: 0; width: 8px; height: 22px; }
 .cross::after { top: 7px; left: 0; width: 22px; height: 8px; }
 .lede { margin: 6px 0 0; color: var(--muted); max-width: 70ch; }
+.privacy { display: flex; gap: 8px; align-items: flex-start; margin: 10px 0 0; max-width: 70ch; padding: 8px 12px; font-size: .875rem; line-height: 1.45; color: var(--text); background: var(--accent-soft); border: 1px solid var(--accent); border-radius: 10px; }
+.privacy-icon { flex: none; }
 
 /* Layout */
 .layout {
