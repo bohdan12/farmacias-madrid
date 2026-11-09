@@ -1,0 +1,94 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="light dark">
+  <meta name="referrer" content="strict-origin-when-cross-origin">
+  <title>Farmacias de guardia con formulación · Madrid</title>
+  <meta name="description" content="Encuentra cerca de ti farmacias de Madrid capital certificadas para elaborar fórmulas magistrales que están abiertas ahora por guardia o servicio 24 horas.">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.css"
+        integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="anonymous">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <a class="skip-link" href="#resultados">Saltar a los resultados</a>
+
+  <header class="site-header">
+    <div class="wrap">
+      <h1><span class="cross" aria-hidden="true"></span>Farmacias de guardia con fórmulas magistrales</h1>
+      <p class="lede">Farmacias de Madrid capital certificadas para elaborar fórmulas magistrales que están abiertas ahora por estar de guardia o en servicio 24 horas, ordenadas por cercanía.</p>
+    </div>
+  </header>
+
+  <main class="wrap layout">
+    <section class="panel controls" aria-labelledby="h-ubicacion">
+      <h2 id="h-ubicacion">1. Tu ubicación</h2>
+      <div class="loc-actions">
+        <button type="button" id="btn-geo" class="btn btn-primary">
+          <span aria-hidden="true">◎</span> Usar mi ubicación
+        </button>
+        <button type="button" id="btn-pick" class="btn" aria-pressed="false">Elegir un punto en el mapa</button>
+      </div>
+      <form id="addr-form" class="addr-form" novalidate>
+        <label for="addr">O escribe una dirección de Madrid</label>
+        <div class="addr-row">
+          <input id="addr" name="addr" type="text" autocomplete="street-address" placeholder="p. ej. Calle de Alcalá 100" maxlength="200">
+          <button type="submit" class="btn" id="btn-addr">Buscar</button>
+        </div>
+      </form>
+      <ul id="addr-results" class="addr-results" hidden></ul>
+      <p id="loc-status" class="status" role="status" aria-live="polite"></p>
+
+      <h2 id="h-filtros">2. Filtros</h2>
+      <fieldset class="filters">
+        <legend class="visually-hidden">Qué farmacias mostrar</legend>
+        <div class="seg">
+          <label class="seg-opt"><input type="radio" name="mode" value="now" checked> <span>Abiertas ahora (guardia/24h)</span></label>
+          <label class="seg-opt"><input type="radio" name="mode" value="today"> <span>Con guardia hoy</span></label>
+        </div>
+        <label class="check"><input type="checkbox" id="f-24h"> Solo servicio 24 horas</label>
+        <label class="check"><input type="checkbox" id="f-ster"> Elaboran estériles (colirios, inyectables…)</label>
+      </fieldset>
+    </section>
+
+    <section class="map-col" aria-label="Mapa">
+      <div id="map" class="map" role="region" aria-label="Mapa de farmacias"></div>
+      <p id="map-hint" class="map-hint" hidden>Haz clic o toca en el mapa para fijar tu ubicación.</p>
+    </section>
+
+    <section class="results-col" id="resultados" aria-labelledby="h-resultados" tabindex="-1">
+      <div class="results-head">
+        <h2 id="h-resultados">3. Resultados</h2>
+        <p id="clock" class="clock"></p>
+      </div>
+      <div id="data-status" class="notice" role="status" aria-live="polite">Cargando datos…</div>
+      <div id="range-warning" class="notice notice-warn" hidden></div>
+      <p id="summary" class="summary" aria-live="polite"></p>
+      <ol id="list" class="list"></ol>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="wrap">
+      <div class="disclaimer" role="note">
+        <h2>Antes de ir</h2>
+        <ul>
+          <li>Los datos pueden cambiar: <strong>llama a la farmacia antes de ir</strong>.</li>
+          <li>Estar certificada para fórmulas magistrales significa que la farmacia está acreditada para elaborarlas (según el listado del COFM), <strong>no que vaya a tener tu fórmula preparada</strong> en el momento.</li>
+          <li>La distancia es en línea recta, no la del recorrido real.</li>
+          <li><strong>En caso de emergencia, llama al 112.</strong></li>
+        </ul>
+      </div>
+      <h2>Fuentes de datos</h2>
+      <ul id="sources" class="sources"></ul>
+      <p class="small" id="generated"></p>
+      <p class="small">Mapa: © colaboradores de <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a>. Búsqueda de direcciones: <a href="https://nominatim.org/">Nominatim</a> (datos © OpenStreetMap, ODbL). Esta página no usa cookies, analítica ni rastreadores; tu ubicación solo se usa en tu navegador.</p>
+    </div>
+  </footer>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.js"
+          integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin="anonymous"></script>
+  <script src="app.js"></script>
+</body>
+</html>
